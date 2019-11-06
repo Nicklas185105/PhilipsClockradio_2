@@ -12,7 +12,7 @@ public class StateRadio extends StateAdapter{
 
     CountDownTimer mCountDownTimer = new CountDownTimer(1000, 1000) {
         @Override
-        public void onTick(long millisUntilFinnished) {
+        public void onTick(long millisUntilFinished) {
 
         }
 

@@ -11,6 +11,13 @@ public class ContextClockradio {
     private String mDisplayText;
     private Double frekvens;
     private String frekvenser;
+    private Integer sleepTimer;
+    private String alarmHour;
+    private String alarmMinut;
+    private String alarm1;
+    private Integer alarm1Type = 0;
+    private String alarm2;
+    private Integer alarm2Type = 0;
     public boolean isClockRunning = false;
     Double[] fmFrekvens = new Double[20];
     Double[] amFrekvens = new Double[20];
@@ -33,6 +40,20 @@ public class ContextClockradio {
 
         if (frekvens == null){
             frekvens = 90.0;
+        }
+
+        if (sleepTimer == null){
+            sleepTimer = 120;
+        }
+
+        if (alarmHour == null && alarmMinut == null){
+            alarmHour = "12";
+            alarmMinut = "00";
+        }
+
+        if (alarm1 == null && alarm2 == null){
+            alarm1 = "12:00";
+            alarm2 = "12:00";
         }
 
         //Når app'en starter, så går vi ind i Standby State
@@ -89,6 +110,62 @@ public class ContextClockradio {
         else {
             amFrekvens[n] = frekvens;
         }
+    }
+
+    void updateSleepTimer(Integer n){
+        sleepTimer = n;
+    }
+
+    Integer getSleepTimer (){
+        return sleepTimer;
+    }
+
+    void updateAlarmHour(String hour){
+        alarmHour = hour;
+    }
+
+    void updateAlarmMinut(String minut){
+        alarmMinut = minut;
+    }
+
+    String getAlarmHour(){
+        return alarmHour;
+    }
+
+    String getAlarmMinut(){
+        return alarmMinut;
+    }
+
+    void updateAlarm1(String clock){
+        alarm1 = clock;
+    }
+
+    String getAlarm1(){
+        return alarm1;
+    }
+
+    void updateAlarm1Type(int n){
+        alarm1Type = n;
+    }
+
+    String getAlarm2(){
+        return alarm2;
+    }
+
+    Integer getAlarm1Type(){
+        return alarm1Type;
+    }
+
+    void updateAlarm2(String clock){
+        alarm2 = clock;
+    }
+
+    void updateAlarm2Type(int n){
+        alarm2Type = n;
+    }
+
+    Integer getAlarm2Type(){
+        return alarm2Type;
     }
 
     //Disse metoder bliver kaldt fra UI tråden
